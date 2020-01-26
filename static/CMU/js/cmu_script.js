@@ -14,7 +14,9 @@ $(document).ready(function () {
                 action: 'post'
             },
             success: function (json) {
-                form.children(".cmu_new_url").text(json.cmu_new_url);
+                if (form.children(".cmu_new_url")){
+                    form.children(".cmu_new_url").text(json.cmu_new_url);
+                }
                 navigator.clipboard.writeText(json.cmu_new_url)
                     .then(() => {
                         $('.cmu_button').html('<i class="far fa-copy"></i>');
